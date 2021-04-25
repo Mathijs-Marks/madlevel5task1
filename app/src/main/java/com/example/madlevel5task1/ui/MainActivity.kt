@@ -27,10 +27,11 @@ class MainActivity : AppCompatActivity() {
 
         navController = navHostFragment.navController
 
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+        binding.fab.setOnClickListener {
+            navController.navigate(R.id.action_notepadFragment_to_addNoteFragment)
         }
+
+        fabToggler()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -46,6 +47,16 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun fabToggler() {
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id in arrayOf(R.id.addNoteFragment)) {
+                binding.fab.hide()
+            } else {
+                binding.fab.show()
+            }
         }
     }
 }
