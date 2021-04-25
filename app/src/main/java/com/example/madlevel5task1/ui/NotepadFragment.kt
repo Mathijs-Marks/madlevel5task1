@@ -12,14 +12,14 @@ import com.example.madlevel5task1.R
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class NotesFragment : Fragment() {
+class NotepadFragment : Fragment() {
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notes, container, false)
+        return inflater.inflate(R.layout.fragment_notepad, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
